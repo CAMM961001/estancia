@@ -1,7 +1,11 @@
 import os
 import sys
 import tarfile
-import pandas as pd
+
+from pandas import (
+    DataFrame
+    ,concat
+    ,read_csv)
 
 def get_tar(name:str, path='.'):
     """
@@ -55,7 +59,7 @@ if __name__ == '__main__':
     
     # Move files and build data catalogue
     print('Building data catalogue...')
-    catalogue = pd.DataFrame(columns=['file', 'variable', 'type'])
+    catalogue = DataFrame(columns=['file', 'variable', 'type'])
 
     for file in os.listdir(os.path.join(DATA_DIR, 'data')):
         
@@ -66,9 +70,9 @@ if __name__ == '__main__':
         if file.endswith('.csv'):
             _df = (
                 # Convert catalogue to dataframe
-                pd.DataFrame(
+                DataFrame(
                     # Open csv file and get dtypes
-                    pd.read_csv(file, nrows=10)
+                    read_csv(file, nrows=10)
                     .dtypes)
                 # Reset index for column manipulation
                 .reset_index()
@@ -78,7 +82,7 @@ if __name__ == '__main__':
                 .assign(file = os.path.basename(file)))
             
             # Append file data to global catalogue
-            catalogue = pd.concat([catalogue, _df])
+            catalogue = concat([catalogue, _df])
             
             # Realease system memory
             del _df
