@@ -32,6 +32,28 @@ def get_tar(name:str, path='.'):
         print('Invalid file, verify <name>.tar.gz extension...')
 
 
+def build_data_catalogue(file:str):
+    # Filter csv files for catalogue
+    if file.endswith('.csv'):
+        _df = (
+            # Convert catalogue to dataframe
+            DataFrame(
+                # Open csv file and get dtypes
+                read_csv(file, nrows=10)
+                .dtypes)
+            # Reset index for column manipulation
+            .reset_index()
+            # Rename columns
+            .rename(columns={'index':'variable', 0:'type'})
+            # Assign file source as column
+            .assign(file = os.path.basename(file)))
+        
+        return _df
+    
+    else:
+        print(f'Skippping invalid file...\n\t{os.path.basename(file)}')
+
+
 if __name__ == '__main__':
     
     # Imports for main execution
@@ -66,26 +88,13 @@ if __name__ == '__main__':
         # Build file full path
         file = os.path.join(DATA_DIR, 'data', file)
         
-        # Filter csv files for catalogue
-        if file.endswith('.csv'):
-            _df = (
-                # Convert catalogue to dataframe
-                DataFrame(
-                    # Open csv file and get dtypes
-                    read_csv(file, nrows=10)
-                    .dtypes)
-                # Reset index for column manipulation
-                .reset_index()
-                # Rename columns
-                .rename(columns={'index':'variable', 0:'type'})
-                # Assign file source as column
-                .assign(file = os.path.basename(file)))
-            
-            # Append file data to global catalogue
-            catalogue = concat([catalogue, _df])
-            
-            # Realease system memory
-            del _df
+        _df = build_data_catalogue(file=file)
+        
+        # Append file data to global catalogue
+        catalogue = concat([catalogue, _df])
+
+        # Realease system memory
+        del _df
 
         # Move file to new directory
         move(file, DST_DIR)
