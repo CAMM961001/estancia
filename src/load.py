@@ -83,13 +83,14 @@ def build_h3_catalogue(file:str, id:str, lng:str, lat:str):
 
 if __name__ == '__main__':
     # ----------------------------------------------------------------- Imports
-    from settings import ROOT
+    from settings import Settings
     from shutil import move
 
 
     # ----------------------------------------- Process resources and constants
+    settings = Settings()
     NAME = 'datos-produccion-maiz'
-    DATA_DIR = os.path.join(ROOT, 'data')
+    DATA_DIR = os.path.join(settings.ROOT, 'data')
     DST_DIR = os.path.join(DATA_DIR, NAME)
 
     # Break process if directory already exists
