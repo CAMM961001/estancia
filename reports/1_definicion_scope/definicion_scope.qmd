@@ -115,3 +115,5 @@ modelos que se van a comparar serán entonces:
 * Regresión lineal con componente geoespacial y efectos fijos.
 * Regresión con pesos geográficos, o _Geographically Weighted Regression_ (GWR)
 </div>
+
+---
