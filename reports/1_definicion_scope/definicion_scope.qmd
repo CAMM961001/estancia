@@ -1,23 +1,16 @@
 ---
-title: "Reporte de estancia"
+title: "Instituto Tecnológico Autónomo de México"
+subtitle: "Maestría en Ciencia de Datos - Reporte de estancia"
+author: "Miguel Ángel Castañeda Martínez"
 format:
   pdf:
     toc: true
+    toc-title: "Tabla de contenidos"
     number-sections: true
     colorlinks: true
     papersize: letter
 jupyter: python3
 ---
-
-**Instituto Tecnológico Autónomo de México**
-<br>**Maestría en Ciencia de Datos**
-<br>**Miguel Ángel Castañeda Martínez**
-
-En el presente documento se desarrolla el siguiente contenido:
-
-* [Contexto del problema](#contexto-del-problema)
-* [Estrategia de solución](#estrategia-de-solución)
-* [Modelos a comparar](#modelos-a-comparar)
 
 # Contexto del problema
 
