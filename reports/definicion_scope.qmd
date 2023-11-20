@@ -1,0 +1,47 @@
+---
+title: "Reporte de estancia"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+**Instituto Tecnológico Autónomo de México**
+<br>**Maestría en Ciencia de Datos**
+<br>**Miguel Ángel Castañeda Martínez**
+
+En el presente documento se desarrolla el siguiente contenido:
+
+* [Contexto del problema](#contexto-del-problema)
+* [Estrategia de solución](#estrategia-de-solución)
+* [Modelos a comparar](#modelos-a-comparar)
+
+# Contexto del problema
+
+<div style="text-align: justify">
+Dentro del mundo de problemas que es posible resolver con herramientas de
+ciencia de datos existen algunos que destacan por el tipo de estructura
+inherente en los datos que se tienen para su resolución. Uno de ellos es el
+problema que involucra datos con estructura geoespacial, mismo que será el
+tema central de este trabajo.
+</div>
+
+<div style="text-align: justify">
+La forma más general de definir un conjunto de datos geoespaciales es todo
+aquel dato que tenga un componente geográfico, que por lo general son el par de
+coordenadas **longitud** y **latitud**. Estos pares de coordenadas tiene su
+abstracción matemática en vectores cuya unidad fundamental es el **punto**, un par
+de puntos definen una **polilínea**, y a su vez una serie de polilíneas definen
+un **polígono**.
+</div>
+
+# Estrategia de solución
+
+Redactar
+
+# Modelos a comparar
+
+
+
+<div style="text-align: justify">
+</div>
