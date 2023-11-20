@@ -1,8 +1,10 @@
 ---
 title: "Reporte de estancia"
 format:
-  html:
-    code-fold: true
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
 jupyter: python3
 ---
 
