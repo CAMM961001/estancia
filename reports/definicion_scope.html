@@ -34,6 +34,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="definicion_scope_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="definicion_scope_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -70,10 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <section id="contexto-del-problema" class="level1">
 <h1>Contexto del problema</h1>
 <div style="text-align: justify">
-<p>Dentro del mundo de problemas que es posible resolver con herramientas de ciencia de datos existen algunos que destacan por el tipo de estructura inherente en los datos que se tienen para su resolución. Uno de ellos es el problema que involucra datos con estructura geoespacial, mismo que será el tema central de este trabajo.</p>
-</div>
-<div style="text-align: justify">
-<p>La forma más general de definir un conjunto de datos geoespaciales es todo aquel dato que tenga un componente geográfico, que por lo general son el par de coordenadas <strong>longitud</strong> y <strong>latitud</strong>. Estos pares de coordenadas tiene su abstracción matemática en vectores cuya unidad fundamental es el <strong>punto</strong>, un par de puntos definen una <strong>polilínea</strong>, y a su vez una serie de polilíneas definen un <strong>polígono</strong>.</p>
+<p>Dentro del mundo de problemas que es posible resolver con herramientas de ciencia de datos, existen algunos que destacan por el tipo de estructura inherente en los datos que se tienen para su resolución. Uno de ellos es el problema que involucra <strong>estructura geoespacial</strong>, mismo que será el tema central de este trabajo.</p>
+<p>La forma más general de definir un conjunto de datos geoespaciales es todo aquel que tenga un componente geográfico, que por lo general son el par de coordenadas <strong>longitud</strong> y <strong>latitud</strong>. Estos pares de coordenadas tiene su abstracción matemática en vectores cuya unidad fundamental es el <strong>punto</strong>, un par de puntos definen una <strong>polilínea</strong>, y a su vez una serie de polilíneas definen un <strong>polígono</strong>.</p>
+<p>Tomando esto en cuenta, existe una gran variedad de aplicaciones alineadas a explicar fenómenos geoespaciales como pudieran ser:</p>
+<ul>
+<li>Visualizar la distribución de algún índice de pobreza en una región dada.</li>
+<li>Predecir la producción de algún producto agrícola en función de su ubicación.</li>
+<li>Optimizar la ruta más corta y de menor tiempo de traslado dado un origen y un destino.</li>
+</ul>
+<p>Los primeros dos ejemplos son de particular interés para este trabajo debido a que un enfoque de solución de estos es utilizando regresión lineal, misma a la que se le puede imponer estructura geoespacial como una componente adicional de la regresión.</p>
+<p>Sin embargo, dado el costo computacional que esto implica, una práctica que se da en estos problemas es aproximar el componente espacial con funciones indicadoras de la región a la que pertenece un registro dado, lo cual no es propiamente un enfoque incorrecto pero sacrifica información del problema.</p>
+<p>Adicionalmente, una de las implicaciones de utilizar métodos de regresión para la resolución de estos problemas es que a la hora de comparar modelos se usan métricas típicas de regresión, como lo son <span class="math inline">\(R^2\)</span>, RMSE, entre otros, a la par que se dejan de lado métodos para diagnosticar el desempeño de modelos geoespaciales que serán explicados con mayor detalle más adelante.</p>
+<p>Habiendo explicado lo anterior, el objetivo de este trabajo es detallar estos métodos de diagnóstico para comparar técnicas de regresión simplificadas con modelos que propiamente incorporan estructuras geoespaciales al problema.</p>
 </div>
 </section>
 <section id="estrategia-de-solución" class="level1">

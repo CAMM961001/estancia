@@ -20,19 +20,45 @@ En el presente documento se desarrolla el siguiente contenido:
 
 <div style="text-align: justify">
 Dentro del mundo de problemas que es posible resolver con herramientas de
-ciencia de datos existen algunos que destacan por el tipo de estructura
+ciencia de datos, existen algunos que destacan por el tipo de estructura
 inherente en los datos que se tienen para su resolución. Uno de ellos es el
-problema que involucra datos con estructura geoespacial, mismo que será el
-tema central de este trabajo.
-</div>
+problema que involucra **estructura geoespacial**, mismo que será el tema
+central de este trabajo.
 
-<div style="text-align: justify">
 La forma más general de definir un conjunto de datos geoespaciales es todo
-aquel dato que tenga un componente geográfico, que por lo general son el par de
+aquel que tenga un componente geográfico, que por lo general son el par de
 coordenadas **longitud** y **latitud**. Estos pares de coordenadas tiene su
 abstracción matemática en vectores cuya unidad fundamental es el **punto**, un par
 de puntos definen una **polilínea**, y a su vez una serie de polilíneas definen
 un **polígono**.
+
+Tomando esto en cuenta, existe una gran variedad de aplicaciones alineadas a
+explicar fenómenos geoespaciales como pudieran ser:
+
+* Visualizar la distribución de algún índice de pobreza en una región dada.
+* Predecir la producción de algún producto agrícola en función de su ubicación.
+* Optimizar la ruta más corta y de menor tiempo de traslado dado un origen y un
+destino.
+
+Los primeros dos ejemplos son de particular interés para este trabajo debido
+a que un enfoque de solución de estos es utilizando regresión lineal, misma a
+la que se le puede imponer estructura geoespacial como una componente adicional
+de la regresión.
+
+Sin embargo, dado el costo computacional que esto implica, una práctica que se
+da en estos problemas es aproximar el componente espacial con funciones
+indicadoras de la región a la que pertenece un registro dado, lo cual no es
+propiamente un enfoque incorrecto pero sacrifica información del problema.
+
+Adicionalmente, una de las implicaciones de utilizar métodos de regresión para
+la resolución de estos problemas es que a la hora de comparar modelos se usan
+métricas típicas de regresión, como lo son $R^2$, RMSE, entre otros, a la par
+que se dejan de lado métodos para diagnosticar el desempeño de modelos
+geoespaciales que serán explicados con mayor detalle más adelante.
+
+Habiendo explicado lo anterior, el objetivo de este trabajo es detallar estos
+métodos de diagnóstico para comparar técnicas de regresión simplificadas con
+modelos que propiamente incorporan estructuras geoespaciales al problema.
 </div>
 
 # Estrategia de solución
