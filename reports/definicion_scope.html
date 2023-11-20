@@ -88,7 +88,20 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="estrategia-de-solución" class="level1">
 <h1>Estrategia de solución</h1>
-<p>Redactar</p>
+<div style="text-align: justify">
+<p>En términos generales, la comparación de modelos geoespaciales se sustenta en encontrar <strong>aleatoriedad espacial</strong> en los residuales del modelo, que también es conocidad como <em>Spatial Randomness</em> (SR), y es la ausencia de cualquier tipo de patrón espacial. Para que esta exista se deben satisfacer dos condiciones:</p>
+<ul>
+<li>Los residuales son equiprobables en cualquier ubicación en el espacio.</li>
+<li>El valor de un residual no depende del valor de sus vecinos.</li>
+</ul>
+<p>Consecuentemente, la ubicación de las observaciones puede ser alterada sin afectar la información contenida en los datos bajo SR, esto se puede hacer mediante procesos de permutación de los datos, y el probarlo está apalancado del concepto de <strong>autocorrelación espacial</strong>, que busca medir la variación de una misma variable en ubicaciones distintas.</p>
+<p>Esto lleva al planteamiento de la prueba de hipótesis fundamental para cualquier problema con estructura geoespacial:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: Los datos se distribuyen bajo SR.</li>
+<li><span class="math inline">\(H_1\)</span>: Los datos presentan estructura espacial.</li>
+</ul>
+<p>Finalmente, si un modelo geoespacial es lo suficientemente bueno como para extraer esta estructura de los datos, entonces hacer una prueba de hipótesis espacial en sus residuales debería aceptar la hipótesis nula.</p>
+</div>
 </section>
 <section id="modelos-a-comparar" class="level1">
 <h1>Modelos a comparar</h1>

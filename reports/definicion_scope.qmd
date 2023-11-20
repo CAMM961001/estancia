@@ -63,7 +63,33 @@ modelos que propiamente incorporan estructuras geoespaciales al problema.
 
 # Estrategia de solución
 
-Redactar
+<div style="text-align: justify">
+En términos generales, la comparación de modelos geoespaciales se sustenta en
+encontrar **aleatoriedad espacial** en los residuales del modelo, que también
+es conocidad como _Spatial Randomness_ (SR), y es la ausencia de cualquier
+tipo de patrón espacial. Para que esta exista se deben satisfacer dos
+condiciones:
+
+* Los residuales son equiprobables en cualquier ubicación en el
+espacio.
+* El valor de un residual no depende del valor de sus vecinos.
+
+Consecuentemente, la ubicación de las observaciones puede ser alterada sin
+afectar la información contenida en los datos bajo SR, esto se puede hacer
+mediante procesos de permutación de los datos, y el probarlo está apalancado
+del concepto de **autocorrelación espacial**, que busca medir la variación de
+una misma variable en ubicaciones distintas.
+
+Esto lleva al planteamiento de la prueba de hipótesis fundamental para
+cualquier problema con estructura geoespacial:
+
+* $H_0$: Los datos se distribuyen bajo SR.
+* $H_1$: Los datos presentan estructura espacial.
+
+Finalmente, si un modelo geoespacial es lo suficientemente bueno como para
+extraer esta estructura de los datos, entonces hacer una prueba de hipótesis
+espacial en sus residuales debería aceptar la hipótesis nula.
+</div>
 
 # Modelos a comparar
 
