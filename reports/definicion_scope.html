@@ -106,7 +106,19 @@ ul.task-list li input[type="checkbox"] {
 <section id="modelos-a-comparar" class="level1">
 <h1>Modelos a comparar</h1>
 <div style="text-align: justify">
-
+<p>Para compararlo, se utilizará como referencia el trabajo de investigación publicado en el artículo <a href="https://www.tandfonline.com/doi/full/10.1080/17421772.2020.1754448"><em>The Assessment of Impacts and Risks of Climate Change on Agriculture (AIRCCA)</em></a>, mismo que plantea un modelo de regresión lineal para predecir la producción mundial por región de tres semillas fundamentales: maíz, arroz, y trigo.</p>
+<p>Los modelos utilizados en dicha publicación hacen la simplificación descrita en la sección anterior, es decir, agrupa diversos puntos de coordenadas en una región dada para la cual se crea una variable indicadora que toma los valores:</p>
+<ul>
+<li><span class="math inline">\(I_R = 1\)</span>, si las coordenadas del registro pertenecen a esa región.</li>
+<li><span class="math inline">\(I_R = 0\)</span>, si no pertenecen a esa región.</li>
+</ul>
+<p>Esto se hace para tantas regiones existan en la definición del problema, y los modelos que se van a comparar serán entonces:</p>
+<ul>
+<li>Regresión lineal de referencia planteada en el artículo.</li>
+<li>Regresión lineal con componente geoespacial.</li>
+<li>Regresión lineal con componente geoespacial y efectos fijos.</li>
+<li>Regresión con pesos geográficos, o <em>Geographically Weighted Regression</em> (GWR)</li>
+</ul>
 </div>
 </section>
 

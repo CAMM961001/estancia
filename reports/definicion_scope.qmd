@@ -93,7 +93,25 @@ espacial en sus residuales debería aceptar la hipótesis nula.
 
 # Modelos a comparar
 
-
-
 <div style="text-align: justify">
+Para compararlo, se utilizará como referencia el trabajo de investigación
+publicado en el artículo [_The Assessment of Impacts and Risks of Climate
+Change on Agriculture (AIRCCA)_](https://www.tandfonline.com/doi/full/10.1080/17421772.2020.1754448),
+mismo que plantea un modelo de regresión lineal para predecir la producción
+mundial por región de tres semillas fundamentales: maíz, arroz, y trigo.
+
+Los modelos utilizados en dicha publicación hacen la simplificación descrita en
+la sección anterior, es decir, agrupa diversos puntos de coordenadas en una
+región dada para la cual se crea una variable indicadora que toma los valores:
+
+* $I_R = 1$, si las coordenadas del registro pertenecen a esa región.
+* $I_R = 0$, si no pertenecen a esa región.
+
+Esto se hace para tantas regiones existan en la definición del problema, y los
+modelos que se van a comparar serán entonces:
+
+* Regresión lineal de referencia planteada en el artículo.
+* Regresión lineal con componente geoespacial.
+* Regresión lineal con componente geoespacial y efectos fijos.
+* Regresión con pesos geográficos, o _Geographically Weighted Regression_ (GWR)
 </div>
