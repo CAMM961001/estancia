@@ -5,6 +5,7 @@ format:
     toc: true
     number-sections: true
     colorlinks: true
+    papersize: letter
 jupyter: python3
 ---
 
