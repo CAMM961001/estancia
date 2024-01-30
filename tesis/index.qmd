@@ -1,0 +1,23 @@
+# Syllabus {.unnumbered}
+
+## Objetivo General {-}
+
+Establecer una referencia rápida de los temas y conceptos necesarios para
+evaluar y comparar modelos geoespaciales.
+
+## Contenido {-}
+
+1. Pruebas de hipótesis
+2. Autocorrelación espacial
+
+## Repositorio de componentes {-}
+
+* Los componentes que integran este trabajo, incluidas notas, _notebooks_,
+código, etc. se encuentran en el [repositorio](https://github.com/CAMM961001/estancia).
+
+## Referencias principales {-}
+
+* [Applied Geospatial Data Science with Python](https://github.com/PacktPublishing/Applied-Geospatial-Data-Science-with-Python), D. Jordan. Packt Publishing.
+* [Introduction to Spatial Data Science](https://youtube.com/playlist?list=PLzREt6r1NenmFyTw8v2JZpEE4PZGNi5Ht&si=SUS-PmoOYAN8_XtO), L. Anselin.
+_The Center for Spatial Data Science_, U. Chicago.
+* [The Assessment of Impacts and Risks of Climate Change on Agriculture (AIRCCA) model: a tool for the rapid global risk assessment for crop yields at a spatially explicit scale](https://sites.google.com/view/aircc-lab), F. Estrada.
