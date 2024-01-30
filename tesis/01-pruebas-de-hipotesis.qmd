@@ -10,7 +10,7 @@ Sin embargo, antes de entrar en detalle sobre qué es la estructura espacial
 primero es importante definir su contraparte, la **aleatorieda espacial**
 (_spatial randomness_).
 
-## Aleatoriedad espacial {-}
+## Aleatoriedad espacial
 
 Es la ausencia de cualquier tipo de patrón espacial en los datos, y debe
 satisfacer dos condiciones:
@@ -23,7 +23,7 @@ Para propósitos de análisis, es de interés encontrar evidencia en contra de
 aleatoriedad espacial ya que esto indicaría que existe estructura espacial
 en lo datos.
 
-## Base de pruebas de hipótesis {-}
+## Base de pruebas de hipótesis
 
 Dado que es de interés encontrar evidencia en contra de aleatoriedad espacial,
 entonces es posible apalancarse de la [1° ley geográfica de Tobler](https://en.wikipedia.org/wiki/Tobler%27s_first_law_of_geography)
@@ -52,14 +52,50 @@ interpretación de tres posibles casos:
 
 ![Casos de autocorrelación espacial](./figuras/01/autocorrelacion_espacial.png)
 
-1. Autocorrelación **positiva**:
-> Se da cuando las observaciones de una vecindad tienen valores similares sean
-negativos (_coldSpot_) o positivos (_hotSpot_), con mayor frecuencia que bajo
-aleatoriedad espacial, lo cual resulta en la presencia de
-**segmentos geográficos**(_clusters_).
+* Autocorrelación **positiva**: Se da cuando las observaciones de una vecindad
+tienen valores similares sean negativos (_cold spot_) o positivos (_hot spot_),
+con mayor frecuencia que en aleatoriedad espacial, lo cual resulta en la
+presencia de **segmentos geográficos** (_clusters_).
 
-2. Autocorrelación **nula**:
-> No existe autocorrelación en los datos por lo que hay **aleatoriedad espacial**.
+* Autocorrelación **nula**: No existe autocorrelación en los datos por lo que
+hay aleatoriedad espacial.
 
-3. Autocorrelación **negativa**:
-> Se da cuando las observaciones de una vecindad tienen **valores alternantes** con mayor frecuencia que en S.R, lo cual resulta en estructuras tipo tablero de Ajedrez.
+* Autocorrelación **negativa**: Se da cuando las observaciones de una vecindad
+tienen **valores alternantes** con mayor frecuencia que en aleatoriedad
+espacial, lo cual resulta en estructuras tipo tablero de ajedrez.
+
+### Estadísticos para autocorrelación espacial
+
+Recordando que un **estadístico** es cualquier valor que resume alguna
+característica de una distribución de referencia ($H_0$), entonces un
+**estadístico de prueba** es aquel que se calcula de los datos y se compara con
+esa misma distribución buscando responder a la pregunta:
+
+>¿Qué tan probable es obtener el estadístico de prueba si éste proviniera
+>de datos generados de la distribución de referencia $H_0$?
+
+Éste entonces acepta o rechaza $H_0$ en función de si la probabilidad de
+observar esos datos supera o no la región de rechazo en la distribución de
+referencia.
+
+Para construir un estadístico de prueba en un contexto espacial es
+necesario que éste capture tanto la **similitud de atributos** como la
+**similitud de ubicación** de una variable consigo misma pero en ubicaciones
+distintas, de ahí que sea **auto**correlación en contraste con otros
+estadísticos como pudiera ser la correlación de Pearson.
+
+#### Similitud de atributos
+
+Busca resumir la similitud de diferentes observaciones de una misma variable
+$x$ en diferentes ubicaciones $i$, $j$, de modo que es una función
+$f(x_i, x_j)$
+
+#### Similitud de ubicación
+
+Formaliza la noción de un vecino a través de los **pesos espaciales** 
+($w_{ij}$) que se almacenan en la matriz de pesos espaciales $W$ a través
+de algún tipo de interacción.
+
+Con estas dos partes se puede construir un estadístico $z$ que sume a lo largo de todos los pares de observaciones $(i, j)$ el producto de la similitud de atributos con la similitud de ubicación, de modo que:
+
+$$z = \sum_{ij}f(x_i,x_j)\cdot w_{ij}$$
