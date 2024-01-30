@@ -1,0 +1,16 @@
+project:
+  type: book
+
+book:
+  title: "Técnicas de comparación de modelos geoespaciales"
+  author: "Miguel A. Castañeda Martínez"
+  chapters:
+    - index.qmd
+    - 01-pruebas-de-hipotesis.qmd
+
+format:
+  html:
+    theme: cosmo
+
+execute:
+  freeze: auto
