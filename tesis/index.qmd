@@ -8,7 +8,7 @@ evaluar y comparar modelos geoespaciales.
 ## Contenido {-}
 
 1. Pruebas de hipótesis
-2. Autocorrelación espacial
+2. Mallados e indexación
 
 ## Repositorio de componentes {-}
 
@@ -21,3 +21,4 @@ código, etc. se encuentran en el [repositorio](https://github.com/CAMM961001/es
 * [Introduction to Spatial Data Science](https://youtube.com/playlist?list=PLzREt6r1NenmFyTw8v2JZpEE4PZGNi5Ht&si=SUS-PmoOYAN8_XtO), L. Anselin.
 _The Center for Spatial Data Science_, U. Chicago.
 * [The Assessment of Impacts and Risks of Climate Change on Agriculture (AIRCCA) model: a tool for the rapid global risk assessment for crop yields at a spatially explicit scale](https://sites.google.com/view/aircc-lab), F. Estrada.
+* [The incidental parameter problem since 1948](http://www.econ.brown.edu/Faculty/Tony_Lancaster/papers/IncidentalParameters1948.pdf)
