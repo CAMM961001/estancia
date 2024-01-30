@@ -182,3 +182,37 @@ De nueva cuenta, la siguiente figura ilustra la idea detras de ambos enfoques:
 Considerando el elemento central en ambos casos, bajo el criterio de torres
 los vecinos serían los elementos superior, inferior, izquiero, y derecho;
 mientras que bajo el criterio de reinas todos los elementos serían vecinos.
+
+#### Criterios basados en distancia
+
+En general están basados en cualquier tipo de función de distancia lo cual
+implica que su aplicación sea a **puntos**, por ejemplo, el centroide de
+polígonos. Sin embargo, dado que una de las implicaciones de la
+_1° Ley de Tobler_ es el **decaemiento por distancia** en la correlación de las
+cosas, entonces no se podría utilizar directamente la distancia sino su
+recíproco.
+
+Algunos de los criterios de distancia más comunes en la práctica son:
+
+* **Radio de cobertura**: Se debe definir un _buffer_ de cobertura basada en
+una distancia de modo que aquellas observaciones dentro de cobertura son
+vecinas y aquellas fuera de cobertura no:
+    * $w_{ij} = 0$ si $d_{ij} > r$
+    * $w_{ij} \neq 0$ si $d_{ij} \leq r$
+
+    Sin embargo, existe un riesgo en la definición del radio de cobertura para
+aquellos casos en que las regiones geográficas tienen tamaños muy diferentes
+entre sí, y es que regiones pequeñas tengan demasiados vecinos, mientras que
+regiones grandes tengan pocos vecinos.
+
+    En el siguiente ejemplo, la región resaltada corre el riesgo de no tener
+ningún vecino ya que la misma región puede ser más grande que el propio radio
+del _buffer_.
+
+![Ejemplo de regiones con tamaños diferentes entre sí](./figuras/01/mapa_1.png){width=250}
+
+* **Vecinos más cercanos** (kNN): Surge como una solución al problema del
+criterio anterior, y considera a los $k$ vecinos más cercanos a una observación
+de interés independientemente de la distancia entre ellos, lo cual resulta en el
+**mismo número de vecinos** para todas las observaciones.
+
