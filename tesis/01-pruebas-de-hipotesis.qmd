@@ -143,6 +143,41 @@ Esto provoca que $W$ sea una **matriz rala** ya que gran número de sus
 elementos son $0$, estos anulan la interacción entre múltiples observaciones
 reduciendo, consecuentemente, el número de parámetros por estimar.
 
+#### Estandarización de pesos
+
+Otro concepto importante en la definición de la matriz de pesos espaciales es
+la **estandarización por renglón** de los pesos. Esto es que para cada renglón
+de la matriz de pesos se hace el escalamiento:
+
+$$w^*_{ij} = \frac{w_{ij}}{\sum_j w_{ij}}$$
+
+De modo que:
+
+$$\sum_j w^*_{ij} = 1$$
+
+Lo anterior es importante debido a:
+
+1. Se restringe el espacio parametral de los pesos.
+2. Para todos los vecinos de una observación se sabe que la suma de los pesos
+será uno.
+3. Vuelve el análisis comparable de una observación a otra.
+4. Permite hacer un cálculo posterior llamado **rezago espacial**, referente
+al promedio de los vecinos.
+
+Como referencia se puede considerar el siguiente ejemplo de una matriz con su
+respectiva estandarización por renglón:
+
+$$A = \begin{pmatrix}
+1 & 0 & 0\\
+1 & 1 & 0\\
+1 & 1 & 1
+\end{pmatrix} \rightarrow 
+A^* = \begin{pmatrix}
+1 & 0 & 0\\
+1/2 & 1/2 & 0\\
+1/3 & 1/3 & 1/3\\
+\end{pmatrix}$$
+
 ### Criterios de contigüidad
 
 Con lo anterior resta definir las reglas para construir la matriz de pesos
