@@ -110,9 +110,9 @@ entre pares de observaciones para todas las $n\cdot(\frac{n-1}{2})$ duplas
 posibles en un espacio geográfico.
 
 La relación entre todos los posibles pares de observaciones se almacena en una
-matriz de interacciones de dimensiones $n\times n$ siendo cada elemento un parámetro
-del problema. Esto hace evidente que para un conjunto de $n$ observaciones, el
-número de parámetros crecería con un factor de $n^2$.
+matriz de interacciones de dimensiones $n\times n$ siendo cada elemento un
+parámetro del problema. Esto hace evidente que para un conjunto de $n$
+observaciones, el número de parámetros crecería con un factor de $n^2$.
 :::
 
 ### Pesos espaciales
@@ -143,7 +143,42 @@ Esto provoca que $W$ sea una **matriz rala** ya que gran número de sus
 elementos son $0$, estos anulan la interacción entre múltiples observaciones
 reduciendo, consecuentemente, el número de parámetros por estimar.
 
-Con lo anterior, resta definir las reglas para construir $W$ para lo cual
-existen múltiples **criterios de contigüidad**.
-
 ### Criterios de contigüidad
+
+Con lo anterior resta definir las reglas para construir la matriz de pesos
+espaciales, para lo cual existen múltiples **criterios de contigüidad** que
+se clasifican en dos categorías principales.
+
+#### Criterios binarios
+
+Se trata del tipo de criterio más simple, se asignan **pesos booleanos** a las
+observaciones que comparten algún tipo de frontera física. El hecho de requerir
+de una frontera implica que este tipo de criterio sea utilizado en
+**polígonos** de modo que:
+
+* $w_{ij}=0$: No se comparte frontera física
+* $w_{ij}=1$: Se comparte alguna frontera
+
+La siguiente figura ilustra la idea de un criterio binario de contigüidad:
+
+![Ejemplo de una matriz de pesos basada en criterios de contigüidad binarios](./figuras/01/contiguidad_ejemplo.png){width=350}
+
+Sin embargo, al construir la matriz de pesos utilizando criterios binarios se
+tienen complicaciones que resultan en dos enfoques a la hora de definir el qué
+es una frontera:
+
+* Matriz de **contigüidad de torres** (_Rook_): Para la definición de
+contigüidad considera únicamente **fronteras completas**. Su nombre es alusivo
+al movimiento de una torre en ajedrez.
+
+* Matriz de **contigüidad de reinas** (_Queen_): Para la definición de
+contigüidad considera tanto **fronteras completas** como **esquinas**. Su
+nombre es alusivo al movimiento de una reina en ajedrez.
+
+De nueva cuenta, la siguiente figura ilustra la idea detras de ambos enfoques:
+
+![Criterios de contigüidad](./figuras/01/criterios_contiguidad.png){width=350}
+
+Considerando el elemento central en ambos casos, bajo el criterio de torres
+los vecinos serían los elementos superior, inferior, izquiero, y derecho;
+mientras que bajo el criterio de reinas todos los elementos serían vecinos.
