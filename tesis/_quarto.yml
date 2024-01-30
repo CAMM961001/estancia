@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "Técnicas de comparación de modelos geoespaciales"
+  title: "Comparación de modelos geoespaciales"
   author: "Miguel A. Castañeda Martínez"
   chapters:
     - index.qmd
