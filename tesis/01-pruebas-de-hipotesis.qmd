@@ -270,4 +270,119 @@ estructura a los datos para anular interacciones.
 
 ## Autocorrelación espacial global
 
+Como se ha venido mencionando, el primer paso para determinar autocorrelación
+espacial es obteniendo un **estadístico global** que resuma tanto similitud de
+atributos como similitud de ubicación, siendo **Moran's I** el más popular.
 
+### Estadístico Moran's I
+
+En la sección [Estadísticos para autocorrelación espacial](#estadísticos-para-autocorrelación-espacial)
+se mencionó que la construcción de un estadístico debe ser de la forma:
+
+$$z=\sum_{ij}f(x_i,x_j)\cdot w_{ij}$$
+
+Para este fin, la formulación más común de Moran's I es la siguiente:
+
+$$(1):\ I = \frac{N}{S_0}\frac{\sum_i^N\sum_j^N w_{ij}(x_i-\bar x)(x_j-\bar x)}{\sum_i^N (x_i-\bar x)^2}$$
+
+En donde los términos $(x_i-\bar x)$, $(x_j-\bar x)$ son la desviación de una
+observación con respecto a la media de modo que en el comportamiento general
+queden centradas en $0$, y en lo subsecuente se reemplazarán por $z_i$, $z_j$
+respectivamente. Adicionalmente:
+
+* $N$: Número de observaciones
+* $S_0$: Suma de todos los pesos espaciales $\sum_{ij}w_{ij}$
+
+Para efectos de interpretación se puede reformular de la siguiente manera:
+
+$$(2):\ I = \left(\frac{\sum_{ij}w_{ij}(z_i\cdot z_j)}{S_0}\right) \left(\frac{1}{N}\sum_i z_i^2\right)^{-1}$$
+
+Con lo cual se debe destacar los siguiente:
+
+* El término $\frac{1}{N}\sum_i z_i^2$ es una estimación de la
+[varianza](https://es.wikipedia.org/wiki/Varianza).
+* Si los pesos fueron estandarizados por fila entonces la suma
+$S_0=\sum_{ij} w_{ij}^*=N$, con lo cual se puede ver que el término $\frac{1}{S_0}(z_i\cdot z_j)$
+es análogo a la [correlación de Pearson](https://es.wikipedia.org/wiki/Coeficiente_de_correlaci%C3%B3n_de_Pearson).
+Esta similitud es una de las razones por las que Moran's I es el estadístico
+más común.
+
+Así mismo, si los pesos fueron estandarizados por fila entonces el estadístico
+se simplifica a la formulación:
+
+$$(3):\ I = \frac{\sum_{ij}w_{ij}(z_i\cdot z_j)}{\sum_{i} z_i^2}$$
+
+::: {.callout-important}
+La prueba de autocorrelación espacial global es potente pero presenta
+algunas limitantes ya que se trata de una prueba que determina si hay evidencia
+de estructura espacial o _clusters_ en los datos. Sin embargo, por sí misma
+**no identifica los _clusters_ ni en donde se encuentran ubicados**.
+:::
+
+### Rezago espacial
+
+Con la formulación $(3)$ de _Moran's I_, que considera que los pesos fueron
+estandarizados previamente, se puede visualizar de forma más directa una nueva
+forma de representar el estadístico:
+
+$$(4):\ I = \frac{\sum_iz_i \left(\sum_j w_{ij}\cdot z_j \right)}{\sum_i z_i^2}$$
+
+Bajo esta nueva formulación, el término $\sum_j w_{ij}\cdot z_j$ se conoce como
+el **rezago espacial** de la observación $i$, que es un promedio ponderado de
+la variable de interés $z$ en los vecinos de la observación $i$. Haciendo un
+cambio de variable $l_i = \sum_j w_{ij}\cdot z_j$, entonces:
+
+$$I = \frac{\sum_iz_i\cdot l_i}{\sum_i z_i^2}$$
+
+Lo cual hace evidente que _Moran's I_ es un
+[coeficiente de regresión ](https://en.wikipedia.org/wiki/Simple_linear_regression)
+para la línea de ajuste entre la variable de interés $z$ y su rezago espacial
+$l$, por tanto, el estadístico $I$ es la pendiente de la línea de ajuste.
+
+### Interpretación
+
+Establecido el significado el estadístico Moran's I, entonces su interpretación
+depende paralelamente tanto de la **señal** como de la **significancia**. Lo
+primero que se debe asegurar antes de empezar hacer cualquier interpretación es
+que sea **estadísticamente significativo**, de otro modo, la señal por sí misma
+no dice absolutamente nada. Este proceso se describe con mayor detenimiento más
+adelante.
+
+Dicho eso, una vez asegurada la significancia, entonces:
+
+* Si la señal es positiva, entonces hay evidencia de **_clusters_**, tomando en
+cuenta que estos son referentes a **valores similares en una vecindad** y no
+necesariamente tienen que ser positivos o negativos.
+* Si la señal es negativa, entonces hay evidencia de **valores alternantes** o
+autocorrelación espacial negativa.
+
+Para ahondar aún más en su interpretación, considera la siguiente dispersión
+de Moran para la cual se determinó el estadístico $I$:
+
+![Ejemplo de dispersión de Moran](./figuras/01/moran.png){width=300}
+
+Se debe destacar el significado de los **cuatro cuadrantes** que aparecen en la
+dispersión de Moran:
+
+* Los cuadrantes **superior derecho** e **inferior izquierdo** corresponden a
+autocorrelación espacial **positiva**, lo cual significa que estos datos son
+**similares a sus vecinos**.
+* Los cuadrantes **superior izquierdo** e **inferior derecho** corresponden a
+autocorrelación espacial **negativa**, lo cual significa que en estos datos hay
+**valores alternantes** con sus vecinos lo cual puede ser indicativo de
+**_outliers_** en la región.
+
+Tomando en cuenta que esta dispersión se obtiene con la distancia en
+desviaciones estándar de la media de los datos, entonces puedes inferir lo
+siguiente:
+
+* Los puntos en el cuadrante **superior derecho** son _clusters_ por encima de
+la media, por lo que corresponden a **Hot Spots**.
+* Los puntos en el cuadrante **inferior izquierdo** son _clusters_ por debajo
+de la media, por lo que corresponden a **Cold Spots**.
+* Los puntos en el cuadrante **superior izquierdo** son observaciones con
+**alternancia negativa** con respecto a sus vecinos, es decir, son más chicos
+que sus vecinos.
+* Los puntos en el cuadrante **inferior derecho** son observaciones con
+**alternancia positiva** con respecto a sus vecinos, es decir, son más grandes
+que sus vecinos.
