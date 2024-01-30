@@ -11,6 +11,8 @@ book:
 format:
   html:
     theme: cosmo
+    fig-align: center
+    fig-cap-location: bottom
 
 execute:
   freeze: auto
