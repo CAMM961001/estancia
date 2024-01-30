@@ -251,3 +251,23 @@ criterio anterior, y considera a los $k$ vecinos más cercanos a una observació
 de interés independientemente de la distancia entre ellos, lo cual resulta en el
 **mismo número de vecinos** para todas las observaciones.
 
+### Histograma de conectividad
+
+Una vez que se ha construido la matriz de pesos, se puede inspeccionar el
+**histograma de conectividad** que no es más que un histograma del número de
+vecinos por observación.
+
+Alguno aspectos que se deben atender con detenimiento en un histograma de
+conectividad son:
+
+* Observaciones aisladas o sin vecinos, indican la presencia de islas ya sea
+porque físicamente existe una isla o porque no hay datos entorno al registro
+en cuestión.
+* Número de vecinos inusualmente altos refleja una matriz de pesos que no
+está desempeñándose correctamente, pues no consigue imponer suficiente
+estructura a los datos para anular interacciones.
+* Bimodalidad en la distribución.
+
+## Autocorrelación espacial global
+
+
