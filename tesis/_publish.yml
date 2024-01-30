@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: c1df333e-5a07-4022-bc22-06b50e117f7b
+      url: 'https://camm961001.quarto.pub/comparacion-modelos-geoespaciales'
