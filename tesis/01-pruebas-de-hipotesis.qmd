@@ -1,2 +1,65 @@
-# Pruebas de hipótesis
+# Pruebas de hipótesis {.unnumbered}
 
+Uno de los pasos del **Análisis Exploratorio de Datos Espaciales** (_ESDA_ por
+sus siglas en inglés) es probar si los datos geográficos cuentan con algún
+tipo de estructura espacial. Hacerlo es importante ya que si en efecto existe
+estructura espacial en los datos, entonces esta se debe incorporar en todo
+el análisis.
+
+Sin embargo, antes de entrar en detalle sobre qué es la estructura espacial
+primero es importante definir su contraparte, la **aleatorieda espacial**
+(_spatial randomness_).
+
+## Aleatoriedad espacial {-}
+
+Es la ausencia de cualquier tipo de patrón espacial en los datos, y debe
+satisfacer dos condiciones:
+
+* Las observaciones son equiprobables de ocurrir en cualquer ubicación en el
+espacio.
+* El valor de una observación no depende de sus vecinos.
+
+Para propósitos de análisis, es de interés encontrar evidencia en contra de
+aleatoriedad espacial ya que esto indicaría que existe estructura espacial
+en lo datos.
+
+## Base de pruebas de hipótesis {-}
+
+Dado que es de interés encontrar evidencia en contra de aleatoriedad espacial,
+entonces es posible apalancarse de la [1° ley geográfica de Tobler](https://en.wikipedia.org/wiki/Tobler%27s_first_law_of_geography)
+para el planteamiento de una prueba hipótesis, misma que establece que en un
+espacio geográfico "_Todo está relacionado con todo, pero las cosas más cercanas aún más_".
+Bajo esta ley se pueden extraer dos conclusiones importantes:
+
+1. En un contexto geográfico hay estructuras con dependencia espacial.
+2. Existe decaemiento en la correlación de las cosas con la distancia, es
+decir, observaciones más separadas estarán menos asociadas.
+
+Estos puntos resultan en el planteamiento de la **prueba de hipótesis** básica
+para datos geoespaciales:
+
+* $H_0$: Los datos se distribuyen bajo aleatoriedad espacial.
+* $H_1$: Los datos presentan algún tipo de estructura espacial.
+
+Misma que se fundamenta en determinar la **autocorrelación espacial** de los
+datos.
+
+## Autocorrelación espacial
+
+Busca medir la variación de una misma variable en ubicaciones distintas, y
+puede tomar valores tanto positivos como negativos. Esto lleva a la
+interpretación de tres posibles casos:
+
+![Casos de autocorrelación espacial](./figuras/01/autocorrelacion_espacial.png)
+
+1. Autocorrelación **positiva**:
+> Se da cuando las observaciones de una vecindad tienen valores similares sean
+negativos (_coldSpot_) o positivos (_hotSpot_), con mayor frecuencia que bajo
+aleatoriedad espacial, lo cual resulta en la presencia de
+**segmentos geográficos**(_clusters_).
+
+2. Autocorrelación **nula**:
+> No existe autocorrelación en los datos por lo que hay **aleatoriedad espacial**.
+
+3. Autocorrelación **negativa**:
+> Se da cuando las observaciones de una vecindad tienen **valores alternantes** con mayor frecuencia que en S.R, lo cual resulta en estructuras tipo tablero de Ajedrez.
