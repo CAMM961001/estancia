@@ -96,6 +96,54 @@ Formaliza la noción de un vecino a través de los **pesos espaciales**
 ($w_{ij}$) que se almacenan en la matriz de pesos espaciales $W$ a través
 de algún tipo de interacción.
 
-Con estas dos partes se puede construir un estadístico $z$ que sume a lo largo de todos los pares de observaciones $(i, j)$ el producto de la similitud de atributos con la similitud de ubicación, de modo que:
+Con estas dos partes se puede construir un estadístico $z$ que sume a lo
+largo de todos los pares de observaciones $(i, j)$ el producto de la similitud
+de atributos con la similitud de ubicación, de modo que:
 
 $$z = \sum_{ij}f(x_i,x_j)\cdot w_{ij}$$
+
+::: {.callout-important}
+A la hora de plantear estos enfoques se deriva una complicación fundamental
+debida al **problema de parámetros incidentales**. Para entenderlo, se debe
+recordar que la autocorrelación espacial se sustenta en definir la interacción
+entre pares de observaciones para todas las $n\cdot(\frac{n-1}{2})$ duplas
+posibles en un espacio geográfico.
+
+La relación entre todos los posibles pares de observaciones se almacena en una
+matriz de interacciones de dimensiones $n\times n$ siendo cada elemento un parámetro
+del problema. Esto hace evidente que para un conjunto de $n$ observaciones, el
+número de parámetros crecería con un factor de $n^2$.
+:::
+
+### Pesos espaciales
+
+La solución al problema anterior radica en imponer algún tipo de estructura a
+los datos para limitar el número de parámetros por estimar, es aquí en donde
+los **pesos espaciales** desempeñan un papel esencial al formalizar la noción
+de vecinos. Fundamentalmente, los pesos espaciales están diseñados para
+**excluir algunas interacciones** al limitar el número de vecinos de una
+observación, por ejemplo, considerando aquellas ubicaciones con las que
+comparte una frontera.
+
+Entonces, el **grado de interacción** entre pares de observaciones queda
+definido por un efecto combinado entre el **coeficiente de correlación**
+(asociado a la similitud de atributos), y su **peso** (asociado a la similitud
+de ubicación).
+
+Una vez comprendida la definición de pesos, el siguiente paso es
+construir la **matriz de pesos espaciales** basada en algún tipo de criterio,
+que también es una matríz de dimensiones $n\times n$ en donde se almacena a
+cada peso $w_{ij}$ y que cumple con las siguientes características:
+
+* $w_{ij}\neq 0$ para vecinos.
+* $w_{ij} = 0$ implica que $i$ y $j$ no son vecinos.
+* $w_{ii} = 0$ dado que no hay similitud entre una observación consigo misma.
+
+Esto provoca que $W$ sea una **matriz rala** ya que gran número de sus
+elementos son $0$, estos anulan la interacción entre múltiples observaciones
+reduciendo, consecuentemente, el número de parámetros por estimar.
+
+Con lo anterior, resta definir las reglas para construir $W$ para lo cual
+existen múltiples **criterios de contigüidad**.
+
+### Criterios de contigüidad
