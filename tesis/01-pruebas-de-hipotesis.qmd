@@ -356,10 +356,10 @@ necesariamente tienen que ser positivos o negativos.
 * Si la señal es negativa, entonces hay evidencia de **valores alternantes** o
 autocorrelación espacial negativa.
 
-Para ahondar aún más en su interpretación, considera la siguiente dispersión
-de Moran para la cual se determinó el estadístico $I$:
+Para ahondar aún más en su interpretación, se puede considerar la siguiente
+dispersión de Moran para la cual se determinó el estadístico $I$:
 
-![Ejemplo de dispersión de Moran](./figuras/01/moran.png){width=300}
+![Ejemplo de dispersión de Moran](./figuras/01/dispersion_moran.png){height=300}
 
 Se debe destacar el significado de los **cuatro cuadrantes** que aparecen en la
 dispersión de Moran:
@@ -386,3 +386,36 @@ que sus vecinos.
 * Los puntos en el cuadrante **inferior derecho** son observaciones con
 **alternancia positiva** con respecto a sus vecinos, es decir, son más grandes
 que sus vecinos.
+
+### Significancia estadística
+
+Como se mencionó en la sección anterior, la señal del estadístico _Moran's I_
+no es indicativa de nada si no es estadísticamente significativa. Para
+determinar esto, se utiliza el **valor-p** asociado a la prueba de hipótesis.
+Recordando que las hipótesis son:
+
+* $H_0$: Los datos se distribuyen bajo aleatoriedad espacial.
+* $H_1$: Los datos presentan estructura espacial.
+
+Entonces, un mecanismo que puede utilizarse para probar esto es mediante
+**permutaciones** de los datos. Dado que la $H_0$ plantea que los datos se
+generan bajo aleatoriedad espacial, entonces las permutaciones 
+**reasignan aleatoriamente la variable** de estudio a las distintas
+observaciones **un número grande de veces**, y para cada permutación se calcula
+el estadístico _Moran's I_. Una vez que se han realizado todas las
+permutaciones, se genera la **distribución de muestreo** para el estadístico y
+se determina el **valor-p**.
+
+El valor-p indica la probabilidad de observar los datos bajo la distribución de
+muestreo del estimador, por lo que si la probabilidad es muy baja entonces muy
+posiblemente exista estructura espacial en los datos, con lo cual el
+estadístico _Moran's I_ es **estadísticamente significativo**.
+
+De nueva cuenta se puede considerar la siguiente dispersión de Moran junto con
+su prueba de significancia:
+
+![Prueba de significancia de una dispersión de Moran](./figuras/01/significancia_moran.png){height=300}
+
+En este caso el estadístico de los datos está extremadamente alejado de la
+distribución muestral lo cual resulta en un $p_{val}=0.1\%$ con lo que se
+asegura que es estadísticamente significativo.
