@@ -23,5 +23,6 @@ código, etc. se encuentran en el [repositorio](https://github.com/CAMM961001/es
 _The Center for Spatial Data Science_, U. Chicago.
 * [Spatial Weights](https://www.youtube.com/watch?v=yjFNuyfskaQ), L. Anselin.
 _The Center for Spatial Data Science_, U. Chicago.
+* [H3: Uber’s Hexagonal Hierarchical Spatial Index](https://www.uber.com/en-MX/blog/h3/)
 * [The Assessment of Impacts and Risks of Climate Change on Agriculture (AIRCCA) model: a tool for the rapid global risk assessment for crop yields at a spatially explicit scale](https://sites.google.com/view/aircc-lab)
 * [The incidental parameter problem since 1948](http://www.econ.brown.edu/Faculty/Tony_Lancaster/papers/IncidentalParameters1948.pdf)
