@@ -215,7 +215,7 @@ De nueva cuenta, la siguiente figura ilustra la idea detras de ambos enfoques:
 ![Criterios de contigüidad](./figuras/01/criterios_contiguidad.png){width=350}
 
 Considerando el elemento central en ambos casos, bajo el criterio de torres
-los vecinos serían los elementos superior, inferior, izquiero, y derecho;
+los vecinos serían los elementos superior, inferior, izquierdo, y derecho;
 mientras que bajo el criterio de reinas todos los elementos serían vecinos.
 
 #### Criterios basados en distancia
@@ -345,8 +345,8 @@ Establecido el significado el estadístico Moran's I, entonces su interpretació
 depende paralelamente tanto de la **señal** como de la **significancia**. Lo
 primero que se debe asegurar antes de empezar hacer cualquier interpretación es
 que sea **estadísticamente significativo**, de otro modo, la señal por sí misma
-no dice absolutamente nada. Este proceso se describe con mayor detenimiento más
-adelante.
+no dice absolutamente nada. Este proceso se describe con mayor detenimiento en
+la sección [Significancia estadística](#significancia-estadística).
 
 Dicho eso, una vez asegurada la significancia, entonces:
 
@@ -373,7 +373,7 @@ autocorrelación espacial **negativa**, lo cual significa que en estos datos hay
 **_outliers_** en la región.
 
 Tomando en cuenta que esta dispersión se obtiene con la distancia en
-desviaciones estándar de la media de los datos, entonces puedes inferir lo
+desviaciones estándar de la media de los datos, entonces se puede inferir lo
 siguiente:
 
 * Los puntos en el cuadrante **superior derecho** son _clusters_ por encima de
