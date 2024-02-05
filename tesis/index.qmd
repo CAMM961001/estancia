@@ -18,6 +18,7 @@ código, etc. se encuentran en el [repositorio](https://github.com/CAMM961001/es
 ## Referencias principales {-}
 
 * [Applied Geospatial Data Science with Python](https://github.com/PacktPublishing/Applied-Geospatial-Data-Science-with-Python), D. Jordan. Packt Publishing.
+* [Geographic Data Science with Python](https://geographicdata.science/book/intro.html), S. J. Rey, et.al. CRC Press
 * [Introduction to Spatial Data Science](https://youtube.com/playlist?list=PLzREt6r1NenmFyTw8v2JZpEE4PZGNi5Ht&si=SUS-PmoOYAN8_XtO), L. Anselin.
 _The Center for Spatial Data Science_, U. Chicago.
 * [Spatial Weights](https://www.youtube.com/watch?v=yjFNuyfskaQ), L. Anselin.
