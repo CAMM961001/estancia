@@ -22,7 +22,7 @@ datos. A este rectángulo se le asigna un índice para el cual todo objeto
 dentro de dicho rectángulo (de mayor resolución) tomará este valor.
 
 Después de definir el rectágulo mínimo, el algoritmo R-tree va agregando cada
-rectángulo con sus vecinos de forma iterativa, de modo/ que se definan nuevos
+rectángulo con sus vecinos de forma iterativa, de modo que se definan nuevos
 niveles de menor resolución pero de mayor jerarquía. Esto se hace una y otra
 vez hasta que exista un rectágulo que abarque todo el conjunto de datos como
 se ilustra en la siguiente figura:
@@ -64,25 +64,25 @@ triangulares o cuadrangulares.
 ## H3: Un sistema de indexación geoespacial
 
 Los índices H3 (_Hexagonical Hierarchical_) fueron desarrollados por **Uber**
-para asistir el análsis de oferta y demanda de los socios conductores del
+para asistir el análisis de oferta y demanda de los socios conductores del
 servicio. Uber liberó H3 al público en general en 2018 bajo una licencia de
 código abierto.
 
 Este sistema consiste en múltiples niveles de mallas hexagonales anidadas en
 jerarquías, que abarcan la superficie de todo el planeta. Cada elemento de la
 malla (**padre**), hasta el máximo nivel de resolución, tiene a su vez 7
-elementos de menor jerarquía (también conocidos como **hijos**). Lo anterior es
-conocido como **apertura 7** y se ilustra a continuación:
+elementos de menor jerarquía (**hijos**). Lo anterior es conocido como
+**apertura 7** y se ilustra a continuación:
 
 ![Un elemento contiene aproximadamente 7 de menor jerarquía](./figuras/02/ejemplo_h3.png){height=250}
 
-Sin embargo, si bien un elemento no se subdivide limpiamente en siete hexágonos
-más finos, al rotar los elementos entre sí se consigue una aproximación
-decente conocida como **contención aproximada**, de modo que el área de cada
-hijo es de aproximadamente 1/7 del área de su respectivo padre. En total se
-tienen 16 niveles de jerarquía en este sistema, estando el primero comprendido
-por 122 hexágonos, mientras que el de máxima resolución cuenta con más de
-$569x10^{12}$ elementos únicos.
+Si bien un elemento no se subdivide limpiamente en siete hexágonos más finos,
+al rotar los elementos entre sí se consigue una aproximación decente conocida
+como **contención aproximada**, de modo que el área de cada hijo es de
+aproximadamente 1/7 del área de su respectivo padre. En total se tienen 16
+niveles de jerarquía en este sistema, estando el primero comprendido por 122
+hexágonos, mientras que el de máxima resolución cuenta con más de $569x10^{12}$
+elementos únicos.
 
 La contención aproximada solo aplica al truncar la precisión de un índice,
 mientras que **las fronteras** de los hexágonos indexados en una misma
