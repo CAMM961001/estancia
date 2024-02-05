@@ -1,1 +1,27 @@
-# Mallado e indexación {.unnumbered}
+# Indexación y mallado {.unnumbered}
+
+Los conjuntos de datos geoespaciales rápidamente pueden crecer tanto en
+variedad como en tamaño, por lo que es común que se reduzca su escala para
+efectos de simplificación y rápida exploración. Sin embargo, en la práctica y
+dado el tamaño de los mismos, frecuentemente se necesita acceder a los datos
+o realizar operaciones en ellos de forma eficiente.
+
+Una manera de aumentar la eficiencia en los procesos geoespaciales es mediante
+el uso de **ínidices espaciales**, los cuales hacen que algunas operaciones
+como pudieran ser agregaciones o intersecciones geográficas, sean más rápidas
+dado que no escanean secuencialmente los datos hasta encontrar alguna
+coincidencia, sino que lo hacen mediante índices.
+
+## Noción de indexación
+
+Existen múltiples tipos de índices espaciales siendo [R-tree](https://en.wikipedia.org/wiki/R-tree)
+uno de los más utilizados hoy en día. Estos índices buscan representar a las
+observaciones espaciales en un **rectángulo delimitador mínimo** (_minimun_
+_bounding rectangle_), que es el nivel más bajo de representación de los
+datos. A este rectángulo se le asigna un índice para el cual todo objeto
+dentro de dicho rectángulo (de mayor resolución) tomará este valor.
+
+Después de definir el rectágulo mínimo, el algoritmo R-tree va agregando cada
+rectáculo con sus vecinos de forma iterativa, de modo que se definan nuevos
+niveles de menor resolución pero de mayor gerarquía. Esto se hace una y otra
+vez hasta que exista un rectágulo que abarque todo el conjunto de datos.
