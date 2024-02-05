@@ -22,6 +22,81 @@ datos. A este rectángulo se le asigna un índice para el cual todo objeto
 dentro de dicho rectángulo (de mayor resolución) tomará este valor.
 
 Después de definir el rectágulo mínimo, el algoritmo R-tree va agregando cada
-rectáculo con sus vecinos de forma iterativa, de modo que se definan nuevos
-niveles de menor resolución pero de mayor gerarquía. Esto se hace una y otra
-vez hasta que exista un rectágulo que abarque todo el conjunto de datos.
+rectángulo con sus vecinos de forma iterativa, de modo/ que se definan nuevos
+niveles de menor resolución pero de mayor jerarquía. Esto se hace una y otra
+vez hasta que exista un rectágulo que abarque todo el conjunto de datos como
+se ilustra en la siguiente figura:
+
+![Ejemplo de índices basados en R-tree](./figuras/02/r_tree.png){height=250}
+
+Así pues, al realizar alguna operación como pudiera ser la intersección
+espacial de un polígono con los datos, primero se crea un rectángulo de
+consulta que abarque al polígono de interés, para posteriormente filtrar
+aquellos índices que esten dentro del rectángulo de consulta.
+
+Sobre los rectángulos filtrados, se van expandiendo iterativamente los niveles
+de mayor resolución hasta quedarse únicamente con aquellos que intersectan al
+polígono. Una vez que este proceso concluye, todos los objetos filtrados son
+devueltos como resultado de la intersección.
+
+### Tipos de malla
+
+Cabe destacar que si bien el objetivo de indexar datos es realizar operaciones
+de forma más eficiente, una de las implicaciones que esto tiene es agregar los
+datos en **estructuras regulares** y **simples**. El tipo de malla es una
+consideración importante a la hora de indexar datos, y las mallas más comunes
+con algunas de sus implicaciones son:
+
+| Triangular | Cuadrangular | Hexagonal |
+| :--- | :--- | :--- |
+|![](./figuras/02/neighbors-triangle.png)|![](./figuras/02/neighbors-square.png)|![](./figuras/02/neighbors-hexagon.png)|
+|Hasta **12 vecinos** por elemento y **3 distancias** diferentes dependiendo del criterio de contigüidad.|Hasta **8 vecinos** por elemento y **2 distancias** diferentes dependiendo del criterio de contigüidad.|**6 vecinos** por elemento y la **misma distancia** entre centroides independientemente del criterio de contigüidad.|
+
+De la comparación anterior se debe rescatar que en general las mallas
+hexagonales presentan múltiples ventajas para propósitos de análisis espacial.
+En particular, algunas ventajas adicionales de elementos hexagonales son:
+
+* Tomando como referencia un elemento de la malla, sus vecinos definen anillos
+que pueden aproximar comportamientos circulares en torno al propio elemento.
+* Los hexágonos pueden abarcar un espacio de mejor manera que elementos
+triangulares o cuadrangulares.
+
+## H3: Un sistema de indexación geoespacial
+
+Los índices H3 (_Hexagonical Hierarchical_) fueron desarrollados por **Uber**
+para asistir el análsis de oferta y demanda de los socios conductores del
+servicio. Uber liberó H3 al público en general en 2018 bajo una licencia de
+código abierto.
+
+Este sistema consiste en múltiples niveles de mallas hexagonales anidadas en
+jerarquías, que abarcan la superficie de todo el planeta. Cada elemento de la
+malla (**padre**), hasta el máximo nivel de resolución, tiene a su vez 7
+elementos de menor jerarquía (también conocidos como **hijos**). Lo anterior es
+conocido como **apertura 7** y se ilustra a continuación:
+
+![Un elemento contiene aproximadamente 7 de menor jerarquía](./figuras/02/ejemplo_h3.png){height=250}
+
+Sin embargo, si bien un elemento no se subdivide limpiamente en siete hexágonos
+más finos, al rotar los elementos entre sí se consigue una aproximación
+decente conocida como **contención aproximada**, de modo que el área de cada
+hijo es de aproximadamente 1/7 del área de su respectivo padre. En total se
+tienen 16 niveles de jerarquía en este sistema, estando el primero comprendido
+por 122 hexágonos, mientras que el de máxima resolución cuenta con más de
+$569x10^{12}$ elementos únicos.
+
+La contención aproximada solo aplica al truncar la precisión de un índice,
+mientras que **las fronteras** de los hexágonos indexados en una misma
+resolución tienen **correspondencia exacta**. Por ejemplo, indexar puntos a
+celdas en una misma resolución y encontrar a sus vecinos no se ve afectado
+por la contención aproximada.
+
+Si bien la contención geográfica es aproximada, la **contención lógica** en el
+índice también tiene correspondecia exacta. Esto permite utilizar H3 como un
+índice lógico exacto sobre datos indexados a una resolución específica, lo cual
+a su vez permite relacionar eficientemente conjuntos de
+**datos indexados en diferentes resoluciones**, por ejemplo:
+
+| Descompactado (Malla densa) | Compactado (Malla rala)|
+| :---: | :---: |
+|![](./figuras/02/ejemplo_descompactado.png){height=300}|![](./figuras/02/ejemplo_compactado.png){height=300}|
+|California representada por 10,633 elementos descompactados|California representada por 901 elementos compactados|
