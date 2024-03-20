@@ -419,3 +419,19 @@ su prueba de significancia:
 En este caso el estadístico de los datos está extremadamente alejado de la
 distribución muestral lo cual resulta en un $p_{val}=0.1\%$ con lo que se
 asegura que es estadísticamente significativo.
+
+## Autocorrelación espacial local
+
+Hasta este punto se ha visto que el estadístico Moran's I es ampliamente
+utilizado para identificar si existe estructura espacial en los datos así como
+su tipo, sea positiva o negativa. Sin embargo, este no indica en donde pudieran
+estar ubicados los segmentos geográficos en los cuales se están agrupando los
+datos.
+
+El objetivo de la autocorrelación espacial local es encontrar aquellos grupos
+en los que los datos son más similares (o menos similares) comparados con la
+aleatoriedad espacial, sus ubicaciones en específico, así como una medida de la
+significancia estadística de estos.
+
+Lo anterior se consigue utilizando indicadores conocidos como **LISA**,
+indicadores locales de asociación espacial por sus siglas en inglés.
