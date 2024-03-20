@@ -29,6 +29,17 @@ se ilustra en la siguiente figura:
 
 ![Ejemplo de índices basados en R-tree](./figuras/02/r_tree.png){height=250}
 
+El ejemplo anterior consta de los polígonos $\{a,b,c\}$ y se interpreta de la
+siguiente manera:
+
+* El polígono $a$ pertenece al elemento $M_4$.
+* El polígono $b$ pertenece al elemento $M_5$.
+* El polígono $c$ pertenece al elemento $M_6$.
+* A su vez, los elementos ${M_4,M_5,M_6}$ pertenecen al elemento de mayor
+jeraquía $M_2$.
+* Finalmente, el elemento $M_2$ pertenece al elemento $M_1$ siendo este el de
+mayor jerarquía y menor resolución.
+
 Así pues, al realizar alguna operación como pudiera ser la intersección
 espacial de un polígono con los datos, primero se crea un rectángulo de
 consulta que abarque al polígono de interés, para posteriormente filtrar
