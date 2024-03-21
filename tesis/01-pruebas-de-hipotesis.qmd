@@ -434,4 +434,47 @@ aleatoriedad espacial, sus ubicaciones en específico, así como una medida de l
 significancia estadística de estos.
 
 Lo anterior se consigue utilizando indicadores conocidos como **LISA**,
-indicadores locales de asociación espacial por sus siglas en inglés.
+indicadores locales de asociación espacial por sus siglas en inglés, que tienen
+dos características importantes:
+
+1. Asignan una medida de significancia estadística a nivel local para cada uno
+de los elementos de análisis.
+2. Establecen una relación proporcional entre la suma de los estadísticos
+locales con su correspondiente estadístico global.
+
+En términos simples, un estadístico de autocorrelación espacial global se puede
+expresar como una doble sumatoria sobre las ubicaciones $i,j$. Dado esto, la
+forma local de dicho estadístico sería la suma sobre las diferentes ubicaciones
+$j$ del estadístico en cuestión, para cada una de las ubicaciones $i$, es decir,
+si el estadístico global es de la forma:
+
+$$\sum_{i}\sum_{j}f(x_i,x_j)\cdot w_{ij}$$
+
+Una expresión generalizada para la forma de los indicadores locales sería:
+
+$$\sum_{j}f(x_i,x_j)\cdot w_{ij}$$
+
+### Moran Local
+
+El estadístico de **Moran local** es por mucho el más utilizado y, como sugiere
+su nombre, se deriva del estadístico global _Moran's I_.
+
+Recordandor la formulación $(3)$ de Moran, resultado de haber estandarizado por
+renglón:
+
+$$I = \frac{\sum_{ij}w_{ij}(z_i\cdot z_j)}{\sum_{i} z_i^2}$$
+
+Utilizando la lógica planteada para los indicadores locales se tendría un
+estadístico para cada una de las ubicaciones $i$ de la forma:
+
+$$I_{i} = \frac{\sum_{j}w_{ij}(z_i\cdot z_j)}{\sum_{i} z_i^2}$$
+
+En la expresión anterior, el denomindador es constante y se puede sustituir por
+$a$ para efectos prácticos. A su vez, el término $z_i$ en el numerador puede
+factorizarse de la ecuación, resultando en:
+
+$$I_{i} = a\cdot z_i\sum_{j}w_{ij}\cdot z_j$$
+
+Que es la expresión de Moran local, y con la cual es posible identificar que
+estos indicadores son el producto del valor en la ubicación $i$ con su rezago
+espacial, incorporando un factor de escalamiento de $a$.
