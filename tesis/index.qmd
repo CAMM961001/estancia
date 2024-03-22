@@ -7,8 +7,8 @@ evaluar y comparar modelos geoespaciales.
 
 ## Contenido {-}
 
-1. Pruebas de hipótesis
-2. Mallados e indexación
+1. Introducción a los datos geoespaciales
+2. Pruebas de hipótesis
 
 ## Repositorio de componentes {-}
 
@@ -21,7 +21,6 @@ código, etc. se encuentran en el [repositorio](https://github.com/CAMM961001/es
 * [Geographic Data Science with Python](https://geographicdata.science/book/intro.html), S. J. Rey, et.al. CRC Press
 * [An Introduction to Spatial Data Science with GeoDa. Volume 1: Exploring Spatial Data](https://lanselin.github.io/introbook_vol1/)
 * [An Introduction to Spatial Data Science with GeoDa. Volume 2: Clustering Spatial Data](https://lanselin.github.io/introbook_vol2/)
-* [GeoDa Workbook](https://geodacenter.github.io/documentation.html)
 * [Introduction to Spatial Data Science](https://youtube.com/playlist?list=PLzREt6r1NenmFyTw8v2JZpEE4PZGNi5Ht&si=SUS-PmoOYAN8_XtO), L. Anselin.
 _The Center for Spatial Data Science_, U. Chicago.
 * [Spatial Weights](https://www.youtube.com/watch?v=yjFNuyfskaQ), L. Anselin.

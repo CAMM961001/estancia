@@ -1,4 +1,8 @@
-# Indexación y mallado {.unnumbered}
+# Introducción a los datos geoespaciales {.unnumbered}
+
+Redactar
+
+## Indexación y mallado 
 
 Los conjuntos de datos geoespaciales rápidamente pueden crecer tanto en
 variedad como en tamaño, por lo que es común que se reduzca su escala para
@@ -12,7 +16,7 @@ como pudieran ser agregaciones o intersecciones geográficas, sean más rápidas
 dado que no escanean secuencialmente los datos hasta encontrar alguna
 coincidencia, sino que lo hacen mediante índices.
 
-## Noción de indexación
+### Noción de indexación
 
 Existen múltiples tipos de índices espaciales siendo [R-tree](https://en.wikipedia.org/wiki/R-tree)
 uno de los más utilizados hoy en día. Estos índices buscan representar a las
@@ -50,7 +54,7 @@ de mayor resolución hasta quedarse únicamente con aquellos que intersectan al
 polígono. Una vez que este proceso concluye, todos los objetos filtrados son
 devueltos como resultado de la intersección.
 
-### Tipos de malla
+#### Tipos de malla
 
 Cabe destacar que si bien el objetivo de indexar datos es realizar operaciones
 de forma más eficiente, una de las implicaciones que esto tiene es agregar los
@@ -72,7 +76,7 @@ que pueden aproximar comportamientos circulares en torno al propio elemento.
 * Los hexágonos pueden abarcar un espacio de mejor manera que elementos
 triangulares o cuadrangulares.
 
-## H3: Un sistema de indexación geoespacial
+### H3: Un sistema de indexación geoespacial
 
 Los índices H3 (_Hexagonical Hierarchical_) fueron desarrollados por **Uber**
 para asistir el análisis de oferta y demanda de los socios conductores del
