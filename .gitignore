@@ -167,3 +167,7 @@ cython_debug/
 # Ignore prototype files
 prototype.*
 proto.*
+
+# Ignore quarto files
+index_files
+_book
