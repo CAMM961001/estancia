@@ -6,8 +6,8 @@ book:
   author: "Miguel A. Castañeda Martínez"
   chapters:
     - index.qmd
-    - 01-pruebas-de-hipotesis.qmd
-    - 02-mallado-indexacion.qmd
+    - 01-introduccion.qmd
+    - 02-pruebas-de-hipotesis.qmd
 
 format:
   html:
