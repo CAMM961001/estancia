@@ -2,12 +2,22 @@
 
 Antes de definir en concreto qué son los datos geoespaciales, primero se puede
 aclarar que la mayoría del conocimiento, técnicas, y enfoques de ciencia de
-datos en general, son aplicables a este tipo de datos. En ese sentido, algunas
-metodologías de ciencia de datos, por ejemplo CRISP-DM, son aplicables a un
-contexto geoespacial.
+datos en general, son aplicables a este tipo de datos. En ese sentido, al igual
+que cualquier otro proceso de ciencia de datos, su **objetivo** es encontrar y
+explicar algún tipo de estructura en datos geoespaciales.
 
-Como dicha metodología plantea, para un proceso de ciencia de datos geoespacial
-también se pueden generalizar los pasos en:
+Así pues, la definición de datos geoespaciales en realidad es bastante simple,
+ya que se trata de **cualquier dato que tenga una componente geoespacial** que
+por lo general son _entidades_ representadas en términos de su posición
+geográfica, y que pueden ser representados en formato tabular o no tabular.
+
+En esa línea, algunas metodologías de ciencia de datos, por ejemplo CRISP-DM,
+son aplicables a un contexto geoespacial.
+
+## Metodología de ciencia de datos
+
+Al igual que en la metodología CRISP-DM, para un proceso de ciencia de datos
+geoespacial también se pueden generalizar los pasos en:
 
 ```{mermaid}
 flowchart LR
@@ -22,17 +32,41 @@ flowchart LR
   
 ```
 
+### Conocimiento de dominio
+
 El **conocimiento de dominio** en un contexto geoespacial tiene sus cimientos
 en la **geografía**, que es el estudio de de las características físicas de la
 Tierra, su atmósfera, así como el impacto de actividades humanas en ella.
-Esto se consolida en sistemas de información geográfica conocidos como **GIS**
+Esto se consolida en Sistemas de Información Geográfica conocidos como **GIS**
 (por sus siglas en inglés) utilizados para la creación, recolección,
 organización, visualización, y análisis de datos geoespaciales.
 
-Los datos se crean y recolectan principalmente en dos tipos:
+### Conocimiento de datos
 
-* Datos vectoriales
-* Mapas de bits (raster)
+Para este paso, primero es necesario entender cuáles son los tipos de datos con
+los que se representa los procesos geográficos. Estos se crean y recolectan
+principalmente en dos tipos:
+
+#### Datos vectoriales
+
+Son el tipo de datos más utilizado y, como su nombre lo sugiere, toman formatos
+vectoriales yendo desde la entidad más básica, hasta elementos más complejos.
+Principalmente se clasifican en tres:
+
+* **Punto**: Un par de coordenadas dado un sistema de referencia que por lo
+general toma valores de **longitud** (abscisas) y **latitud** (ordenadas).
+* **Polilínea**: Se define al conectar una **colección de puntos** que no
+necesariamente se encuentran en una misma línea.
+* **Polígono**: Se obtiene al unir múltiples polilíneas entre sí en una
+**geometría cerrada** y con área definida.
+
+
+#### Mapas de bits
+
+Son una abstracción de la geografía en donde se busca representar a la Tierra
+utilizando pixeles. Sus aplicaciones no son muy comúnes dado que no es muy
+frecuente encontrarlos en la práctica, razón por la cual no se mencionan
+nuevamente en este trabajo.
 
 ## Indexación y mallado 
 
