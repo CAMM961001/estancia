@@ -1,6 +1,38 @@
 # Introducción a los datos geoespaciales {.unnumbered}
 
-Redactar
+Antes de definir en concreto qué son los datos geoespaciales, primero se puede
+aclarar que la mayoría del conocimiento, técnicas, y enfoques de ciencia de
+datos en general, son aplicables a este tipo de datos. En ese sentido, algunas
+metodologías de ciencia de datos, por ejemplo CRISP-DM, son aplicables a un
+contexto geoespacial.
+
+Como dicha metodología plantea, para un proceso de ciencia de datos geoespacial
+también se pueden generalizar los pasos en:
+
+```{mermaid}
+flowchart LR
+  A(Conocimiento de dominio) --> B(Conocimiento de datos)
+  B --> A
+  B --> C(Preparación de datos)
+  C --> D(Modelado)
+  D --> C
+  D --> E(Evaluación)
+  E --> A
+  E --> F(Despliegue)
+  
+```
+
+El **conocimiento de dominio** en un contexto geoespacial tiene sus cimientos
+en la **geografía**, que es el estudio de de las características físicas de la
+Tierra, su atmósfera, así como el impacto de actividades humanas en ella.
+Esto se consolida en sistemas de información geográfica conocidos como **GIS**
+(por sus siglas en inglés) utilizados para la creación, recolección,
+organización, visualización, y análisis de datos geoespaciales.
+
+Los datos se crean y recolectan principalmente en dos tipos:
+
+* Datos vectoriales
+* Mapas de bits (raster)
 
 ## Indexación y mallado 
 
@@ -31,7 +63,7 @@ niveles de menor resolución pero de mayor jerarquía. Esto se hace una y otra
 vez hasta que exista un rectágulo que abarque todo el conjunto de datos como
 se ilustra en la siguiente figura:
 
-![Ejemplo de índices basados en R-tree](./figuras/02/r_tree.png){height=250}
+![Ejemplo de índices basados en R-tree](./figuras/01/r_tree.png){height=250}
 
 El ejemplo anterior consta de los polígonos $\{a,b,c\}$ y se interpreta de la
 siguiente manera:
@@ -64,7 +96,7 @@ con algunas de sus implicaciones son:
 
 | Triangular | Cuadrangular | Hexagonal |
 | :--- | :--- | :--- |
-|![](./figuras/02/neighbors-triangle.png)|![](./figuras/02/neighbors-square.png)|![](./figuras/02/neighbors-hexagon.png)|
+|![](./figuras/01/neighbors-triangle.png)|![](./figuras/01/neighbors-square.png)|![](./figuras/01/neighbors-hexagon.png)|
 |Hasta **12 vecinos** por elemento y **3 distancias** diferentes dependiendo del criterio de contigüidad.|Hasta **8 vecinos** por elemento y **2 distancias** diferentes dependiendo del criterio de contigüidad.|**6 vecinos** por elemento y la **misma distancia** entre centroides independientemente del criterio de contigüidad.|
 
 De la comparación anterior se debe rescatar que en general las mallas
@@ -89,7 +121,7 @@ malla (**padre**), hasta el máximo nivel de resolución, tiene a su vez 7
 elementos de menor jerarquía (**hijos**). Lo anterior es conocido como
 **apertura 7** y se ilustra a continuación:
 
-![Un elemento contiene aproximadamente 7 de menor jerarquía](./figuras/02/ejemplo_h3.png){height=250}
+![Un elemento contiene aproximadamente 7 de menor jerarquía](./figuras/01/ejemplo_h3.png){height=250}
 
 Si bien un elemento no se subdivide limpiamente en siete hexágonos más finos,
 al rotar los elementos entre sí se consigue una aproximación decente conocida
@@ -113,5 +145,5 @@ a su vez permite relacionar eficientemente conjuntos de
 
 | Descompactado (Malla densa) | Compactado (Malla rala)|
 | :---: | :---: |
-|![](./figuras/02/ejemplo_descompactado.png){height=300}|![](./figuras/02/ejemplo_compactado.png){height=300}|
+|![](./figuras/01/ejemplo_descompactado.png){height=300}|![](./figuras/01/ejemplo_compactado.png){height=300}|
 |California representada por 10,633 elementos descompactados|California representada por 901 elementos compactados|

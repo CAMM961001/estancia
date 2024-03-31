@@ -50,7 +50,7 @@ Busca medir la variación de una misma variable en ubicaciones distintas, y
 puede tomar valores tanto positivos como negativos. Esto lleva a la
 interpretación de tres posibles casos:
 
-![Casos de autocorrelación espacial](./figuras/01/autocorrelacion_espacial.png)
+![Casos de autocorrelación espacial](./figuras/02/autocorrelacion_espacial.png)
 
 * Autocorrelación **positiva**: Se da cuando las observaciones de una vecindad
 tienen valores similares sean negativos (_cold spot_) o positivos (_hot spot_),
@@ -196,7 +196,7 @@ de una frontera implica que este tipo de criterio sea utilizado en
 
 La siguiente figura ilustra la idea de un criterio binario de contigüidad:
 
-![Ejemplo de una matriz de pesos basada en criterios de contigüidad binarios](./figuras/01/contiguidad_ejemplo.png){width=350}
+![Ejemplo de una matriz de pesos basada en criterios de contigüidad binarios](./figuras/02/contiguidad_ejemplo.png){width=350}
 
 Sin embargo, al construir la matriz de pesos utilizando criterios binarios se
 tienen complicaciones que resultan en dos enfoques a la hora de definir el qué
@@ -212,7 +212,7 @@ nombre es alusivo al movimiento de una reina en ajedrez.
 
 De nueva cuenta, la siguiente figura ilustra la idea detras de ambos enfoques:
 
-![Criterios de contigüidad](./figuras/01/criterios_contiguidad.png){width=350}
+![Criterios de contigüidad](./figuras/02/criterios_contiguidad.png){width=350}
 
 Considerando el elemento central en ambos casos, bajo el criterio de torres
 los vecinos serían los elementos superior, inferior, izquierdo, y derecho;
@@ -244,7 +244,7 @@ regiones grandes tengan pocos vecinos.
 ningún vecino ya que la misma región puede ser más grande que el propio radio
 del _buffer_.
 
-![Ejemplo de regiones con tamaños diferentes entre sí](./figuras/01/mapa_1.png){width=250}
+![Ejemplo de regiones con tamaños diferentes entre sí](./figuras/02/mapa_1.png){width=250}
 
 * **Vecinos más cercanos** (kNN): Surge como una solución al problema del
 criterio anterior, y considera a los $k$ vecinos más cercanos a una observación
@@ -359,7 +359,7 @@ autocorrelación espacial negativa.
 Para ahondar aún más en su interpretación, se puede considerar la siguiente
 dispersión de Moran para la cual se determinó el estadístico $I$:
 
-![Ejemplo de dispersión de Moran](./figuras/01/dispersion_moran.png){height=300}
+![Ejemplo de dispersión de Moran](./figuras/02/dispersion_moran.png){height=300}
 
 Se debe destacar el significado de los **cuatro cuadrantes** que aparecen en la
 dispersión de Moran:
@@ -414,7 +414,7 @@ estadístico _Moran's I_ es **estadísticamente significativo**.
 De nueva cuenta se puede considerar la siguiente dispersión de Moran junto con
 su prueba de significancia:
 
-![Prueba de significancia de una dispersión de Moran](./figuras/01/significancia_moran.png){height=300}
+![Prueba de significancia de una dispersión de Moran](./figuras/02/significancia_moran.png){height=300}
 
 En este caso el estadístico de los datos está extremadamente alejado de la
 distribución muestral lo cual resulta en un $p_{val}=0.1\%$ con lo que se
