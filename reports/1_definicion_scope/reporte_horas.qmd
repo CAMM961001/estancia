@@ -1,0 +1,38 @@
+---
+title: "Instituto Tecnológico Autónomo de México\nMaestría en Ciencia de Datos"
+subtitle: "Estancia de investigación"
+date: "2025/02/22"
+author: "Miguel Ángel Castañeda Martínez"
+format:
+  pdf:
+    toc: false
+    number-sections: false
+    colorlinks: true
+    papersize: letter
+    margin-top: 10mm
+    margin-bottom: 05mm
+jupyter: python3
+---
+
+# Desgloce de horas por actividad
+
+Se cuenta con un total de **150** horas acumuladas para la estancia de
+investigación de la Maestría en Ciencia de Datos del Instituto Tecnológico
+Autónomo de México. Estas se agrupan de la siguiente manera:
+
+|N|Actividad|Descripción|Hrs|Acum|
+|-|:--|:-----------|-|-|
+|1|Investigación|Actividades relacionadas con investigar acerca de teoría, modelos, documentación, etc. de fuentes diversas, sea bibliografía, artículos, conenido multimedia, etc.|4|82|
+|2|Pruebas y prototipos|Actividades relacionadas a pruebas rápidas de algún paquete, implementación, técnica, etc.|-|10|
+|3|Desarrollo y programación|Actividades relacionadas a la implementación de paquetes, modelos, etc. al contexto de la estancia de investigación|-|26|
+|4|Seguimiento y consultas|Seguimiento y resolución de dudas con asesor de estancia|1|12|
+|5|Redacción y reportes|Actividades relacionadas a la elaboración de reportes escritos|1|20|
+
+El resumen anterior grupo se desgloza en las siguientes actividades:
+
+* **Investigación**: Investigación y entendimiento del modelo de Regresión con
+Pesos Geográficos o _Geographicaly Weighted Regression (GWR)_ así como su
+variante Multi-Escala _(MGWR)_
+* **Segumientos y consultas**: Presentación de noción conceptual y funcionamiento
+de modelos GWR y MGWR con asesor de estancia.
+* **Redacción y reportes**: Apuntes de GWR y MGWR, y reporte de horas de estancia
