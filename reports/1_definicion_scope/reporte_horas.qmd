@@ -22,7 +22,7 @@ Autónomo de México. Estas se agrupan de la siguiente manera:
 
 |N|Actividad|Descripción|Hrs|Acum|
 |-|:--|:-----------|-|-|
-|1|Investigación|Actividades relacionadas con investigar acerca de teoría, modelos, documentación, etc. de fuentes diversas, sea bibliografía, artículos, conenido multimedia, etc.|4|82|
+|1|Investigación|Actividades relacionadas con investigar acerca de teoría, modelos, documentación, etc. de fuentes diversas ya sean bibliografía, artículos, contenido multimedia, etc.|4|82|
 |2|Pruebas y prototipos|Actividades relacionadas a pruebas rápidas de algún paquete, implementación, técnica, etc.|-|10|
 |3|Desarrollo y programación|Actividades relacionadas a la implementación de paquetes, modelos, etc. al contexto de la estancia de investigación|-|26|
 |4|Seguimiento y consultas|Seguimiento y resolución de dudas con asesor de estancia|1|12|
